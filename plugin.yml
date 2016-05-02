@@ -1,22 +1,21 @@
-main: aliuly\worldprotect
-api: [1.10.0,1.12.0,2.0.0]
-load: STARTUP
+main: AdvancedPGM\Main
+api: [2.0.0]
 
 name: AdvancedPGM
-description: A plugint that modifies/enables PerWorldGamemode Management
+description: A world gamemode switch plugin.
 version: 1.0.0
 author: CaptainDuck
 website: https://github.com/CaptainDuck/AdvancedPGM-PerWorldGamemode-
 
 commands:
-  worldprotect:
+  apgm:
     description: Manage PerWorldGamemodes
     usage: "/apgm <gm>"
     permission: apgm.cmd
-    aliases: [gamemode]
+    aliases: [wgm]
 
 permissions:
-  wp.cmd:
+  apgm.cmd:
     default: op
     description: "Allow setting a per-world gamemode"
   apgm.cmd.exempt:
