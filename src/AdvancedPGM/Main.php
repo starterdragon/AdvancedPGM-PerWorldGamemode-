@@ -1,41 +1,28 @@
 <?php
-//= cmd:gm,Sub_Commands
-//: Configures per world game modes
-//> usage: /wp _[world]_ gm _[value]_
-//:
-//: Options:
-//> - /wp _[world]_ **gm**
-//:   - show current gamemode
-//> - /wp _[world]_ **gm** _<mode>_
-//:   - Sets the world gamemode to _mode_
-//> - /wp _[world]_ **gm** **none**
-//:   - Removes per world game mode
-//:
-//= features
-//: * Per world game modes
-namespace aliuly\worldprotect;
+namespace AdvancedPGM;
 
-use pocketmine\plugin\PluginBase as Plugin;
+use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\event\entity\EntityTeleportEvent;
 use pocketmine\Player;
-use aliuly\worldprotect\common\MPMU;
-use aliuly\worldprotect\common\mc;
+use pocketmine\utils\TextFormat as C;
+
+
+class Main extends PluginBase{
 
 	public function onEnable(){
-		       $this->getServer()->getLogger()->info(TextFormat::BLUE . "AdvancedPGM enabled.");
+		       $this->getServer()->getLogger()->info(C::BLUE . "AdvancedPGM enabled.");
 
 	}
 
 	public function onDisable(){
-		       $this->getServer()->getLogger()->info(TextFormat::GRAY . ">" . TextFormat::RED . "RED" . "AdvancedPGM disabled");
+		       $this->getServer()->getLogger()->info(C::RED. "AdvancedPGM disabled");
 	}
 
 }
 
-class GmMgr extends BaseWp implements Listener {
 	public function __construct(Plugin $plugin) {
 		parent::__construct($plugin);
 		$this->owner->getServer()->getPluginManager()->registerEvents($this, $this->owner);
@@ -51,7 +38,7 @@ class GmMgr extends BaseWp implements Listener {
 			if ($gm === null) {
 				$c->sendMessage(mc::_("[WP] No gamemode for %1%",$world));
 			} else {
-				$c->sendMessage(mc::_("[WP] %1% Gamemode: %2%",$world,
+				$c->sendMessage("[WP] %1% Gamemode: %2%",$world,
 											 MPMU::gamemodeStr($gm)));
 			}
 			return true;
