@@ -24,6 +24,17 @@ use pocketmine\Player;
 use aliuly\worldprotect\common\MPMU;
 use aliuly\worldprotect\common\mc;
 
+	public function onEnable(){
+		       $this->getServer()->getLogger()->info(TextFormat::BLUE . "AdvancedPGM enabled.");
+
+	}
+
+	public function onDisable(){
+		       $this->getServer()->getLogger()->info(TextFormat::GRAY . ">" . TextFormat::RED . "RED" . "AdvancedPGM disabled");
+	}
+
+}
+
 class GmMgr extends BaseWp implements Listener {
 	public function __construct(Plugin $plugin) {
 		parent::__construct($plugin);
