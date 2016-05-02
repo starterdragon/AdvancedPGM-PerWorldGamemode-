@@ -28,9 +28,9 @@ class GmMgr extends BaseWp implements Listener {
 	public function __construct(Plugin $plugin) {
 		parent::__construct($plugin);
 		$this->owner->getServer()->getPluginManager()->registerEvents($this, $this->owner);
-		$this->enableSCmd("gm",["usage" => mc::_("[value]"),
+		$this->enableSCmd("apgm",["usage" => mc::_("[value]"),
 										"help" => mc::_("Sets the world game mode"),
-										"permission" => "wp.cmd.gm",
+										"permission" => "apgm.cmd",
 										"aliases" => ["gamemode"]]);
 	}
 	public function onSCommand(CommandSender $c,Command $cc,$scmd,$world,array $args) {
@@ -66,7 +66,7 @@ class GmMgr extends BaseWp implements Listener {
 		if ($ev->isCancelled()) return;
 		$pl = $ev->getEntity();
 		if (!($pl instanceof Player)) return;
-		if ($pl->hasPermission("wp.cmd.gm.exempt")) return;
+		if ($pl->hasPermission("apgm.cmd.exempt")) return;
 
 		//echo __METHOD__.",".__LINE__."\n"; //##DEBUG
 		$world = $ev->getTo()->getLevel();
