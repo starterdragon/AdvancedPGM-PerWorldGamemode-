@@ -21,7 +21,7 @@ class Main extends PluginBase{
 		       $this->getServer()->getLogger()->info(C::RED. "AdvancedPGM disabled");
 	}
 
-}
+
 
 	public function __construct(Plugin $plugin) {
 		parent::__construct($plugin);
